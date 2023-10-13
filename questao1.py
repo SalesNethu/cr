@@ -1,8 +1,8 @@
-numero1 = int(input("digite um numero: "))
-numero2 = int(input("digite um numero: "))
-if numero1 > numero2:
-    print(f" imprimir {numero1}")
-elif numero2 > numero1:
-    print(f"imprimier {numero2}")
-else:
-    print("numeros são iguais")
+while True:
+    nota = float(input("digite uma nota entra 0 e 10: "))
+    print(nota)
+    if nota <= 10 and nota >= 0:
+        print("nota cadastrada com sucesso")
+        break
+    else:
+        print("insira uma nova valida")    

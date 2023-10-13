@@ -1,40 +1,49 @@
-# numero1 = int(input("digite o primeiro numero: "))
-# numero2 = int(input("digite o segundo numero: "))
+#nome = "fortaleza"
+#for letra in nome:
+#    print(letra)
 
-# if numero1 == numero2:
-#     print("os numeros sao iguais")
+#for i in range(10):
+#    print(i)
 
-# else:
-#     print("os numeros sao diferentes")
-
-
-# sinal = str(input("digite uma cor do sinal: "))
-
-# if sinal == "vermelho":
-#     print("pare")
-# elif sinal == "amarelo":
-#     print("reduza e atenção")
-# elif sinal == "verde":
-#     print("prossiga")
+#for i in range(1,21,2):
+#    print(i)
 
 
-# else:
-#     print("tente novamente com as cores verde, amarelo e vermelho") 
 
+#contador = 0
+#while contador < 10:
+#    print(contador)
+#    contador = contador + 1
 
-# numero1 = int(input("digite um numero:"))
-# if numero1 > 0:
-#     print("numero positivo")
-# if numero1 < 0:
-#     print("numero negativo")    
-# if numero1 == 0:
-#     print("numero neutro")
+#while True:
+#    nome = str(input("digite seu nome: "))
+#    if nome == "sair":
+#        print("tchau")
+#    break
 
+#while True:
+#    senha = str(input("digite uma senha valida: "))
+#    if len (senha) > 8:
+#        print("senha valida")
+#        break
+#    else:
+#        print("senha invalida")
 
-numero1 = int(input("digite um numero: "))
-if numero1 > 0:
-    print("positivo")
-elif numero1 == 0:
-    print("neutro")
-elif numero1 <0:
-    print("negativo")      
+while True:
+    produto = str(input("cadastrar produto:"))
+    if produto == "sair":
+        print("operação encerrada")
+        break
+    else:
+        print("produto cadastrado")
+  
+
+        
+#contador = 0
+#while True:
+#    contador = contador + 1
+#    if contador == 3:
+#        continue
+#    print(contador)
+#    if contador == 10:
+#        break
