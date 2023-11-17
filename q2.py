@@ -1,26 +1,5 @@
-def contador(letras):
-    conta1 = 0
-    conta2 = 0
-    conta3 = 0
-    conta4 = 0
-    if " " in coisa.strip():
-        for i in coisa:
-            if i == " ":
-                conta1 += 1
-            
-            elif i in "!@#$%¨&*()_+/*-+.":
-                conta2 += 1
-            elif i.lower() in "abcdefghijklmnopqrstuvxz":
-                conta4 += 1
-            elif i in "1234567890":
-                conta3 += 1
-        return f"a frase tem {conta4} caracteres, {conta1} espaço, {conta2} caracteres especiais e {conta3} numeros"
-    else:
-        return f"a palavra:'{coisa} tem {len(coisa.strip())} caracteres " 
+estring = lambda palavra1, palavra2 : f"{palavra1}{palavra2}" if len(palavra1) > 5 and len(palavra2) > 5 else "Erro: digitar palavras com mais de 5 letras"
 
-coisa = str(input("digite uma palavra ou uma frase:"))
-print(contador(coisa))
-            
-
-
- 
+nome1 = str(input("digite uma palavra: "))
+nome2 = str(input("digite uma palavra: "))
+print(estring(nome1, nome2))
