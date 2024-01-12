@@ -1,56 +1,69 @@
-lista_de_alunos = []
 
-def adicionar_aluno ():
-    nome = str(input("digite o nome do aluno:"))
-    cpf = str(input("digite o cpf do aluno: "))
-    turma = str(input("digite qual a turma do aluno: "))
-    notas = []
-    for i in range(4):
-        nota = float(input("digite uma nota: "))
-        notas.append(nota)
-    aluno = {"nome" : nome,"cpf" : cpf, "turma" : turma, "notas" : notas }
-    lista_de_alunos.append(aluno)
+# questão 1
 
-def visualizar_alunos():
-    for aluno_atual in lista_de_alunos:
-        print(f"""
-    Nome do aluno: {aluno_atual["nome"]}
-    CPF do aluno: {aluno_atual["cpf"]}
-    Turma do Aluno: {aluno_atual["turma"]}
-    Notas do aluno: {aluno_atual["notas"]}
-    """)    
-        
-def deletar_aluno():
-    visualizar_alunos()
-    escolha = str(input("digite o cpf do aluno que você quer deletrar: "))
-    for aluno_atual in lista_de_alunos:
-        if aluno_atual["cpf"] == escolha:
-            print(aluno_atual["nome"])
-            posicao_na_lista = lista_de_alunos.index(aluno_atual)
-            lista_de_alunos.pop(posicao_na_lista)
-    print("aluno excluido com sucesso")        
+# class Cachorro():
+#     def __init__(self, nome:str, raça:str, idade: float ):
+#         self.nome = nome
+#         self.raça = raça
+#         self.idade = idade
+
+
+# cachorro1 = Cachorro(nome= "baleia", raça="pé duro", idade= 2 )
+
+# print(cachorro1.nome)
+
+# questao 2
+
+# class Pessoa():
+#     def __init__(self, nome:str, peso:float, genero: str ):
+#         self.nome = nome
+#         self.peso = peso
+#         self.genero = genero
+
+
+# pessoa1 = Pessoa(nome= "Dono do baleia", peso= 75, genero= "masculino" )
+
+# print(pessoa1.genero)
+
+
+# questao 3
+
+
+
+class Empresa():
+    def __init__(self, funcionarios: list):
+        self.funcionarios = funcionarios
+
+    def adicionar(self):
+        nome1 = str(input("digite o nome do funcionário:"))
+    
+        cargo1 = str(input("digite o cargo do funcionário:"))
+        salario1 = float(input("digite o valor do salario"))
+
+        funcionario1 = Funcionario(nome=nome1, cargo=cargo1, salario=salario1)
+
+        self.funcionarios.append(funcionario1)
+
+
+            
+
+class Funcionario():       
+    def __init__(self, nome: str, cargo: str, salario: float):
+        self.nome = nome
+        self.cargo = cargo
+        self.salario = salario
+
 
 
 
 while True:
     menu = int(input("""
-    Escolha uma opção:
-    1 - Adicionar Aluno
-    2 - Visualizar Alunos cadastrados
-    3 - Delatar aluno
-    0 - Sai
+    Selecione a opção desejada:
+    1 - Adicionar Funcionarios
+    2 - Remover funcionario
+    3 - Listar funcionarios
 """))
-    
     match menu:
         case 1:
-            adicionar_aluno()
-        case 2:
-            visualizar_alunos()
-        case 3:
-            deletar_aluno()
-        case 0:
-            break
-        case _:
-            print("opção invalida")
- 
-           
+            Empresa.adicionar()
+            

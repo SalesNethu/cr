@@ -1,46 +1,17 @@
- 
+#par ou impar
 
-# 1. o computador deve reconhecer esses itens. 
-
-import random
-
-def opções() :
-    ["tesoura", "pedra", "papel"]
-
-# 2. Devo pedir para o usuário escolher entre as opões pedra, papel e tesoura.
-
-jogador = str(input("escolha entre 'pedra', 'papel' ou 'tesoura' "))
-computador = random.choice(opções)   
+def checar_resultado():
+    imparoupar1 = int(input("digite um numero:"))
+    imparooupar2 = int(input("digite um numero:"))
+    
 
 while True:
-    if jogador not in opções:
-        print("Escolha inválida. Tente novamente")
-    elif jogador in opções:
+    escolha1 = str(input("escolha impar ou par ou sair para encerrar:")).upper()
+    if escolha1 == "sair":
         break
-
-while True: 
-    elif jogador == "tesoura" and computador == "pedra" or jogador == "papel" and computador == "papel" or jogador == "papel" and computador == "tesoura":
-        print("você perdeu")
-    elif jogador == "tesoura" and computador == "papel" or jogador == "pedra" and computador == "tesoura" or jogador == "papel" and computador == "pedra":
-        print("Voceê venceu")
-    elif jogador == "tesoura" and computador == "tesoura" or jogador == "pedra" and computador == "pedra" or jogador == "papel" and computador == "papel":
-        print:("empate")
-    
-    break
-    
-        
-
-    
+    elif escolha1 == "impar" or escolha1 == "par":
+        print("escolha registrada")
+    else: 
+        print("escolha impar ou par ou sair para encerrar") 
           
-
-
-
-    
-
-# 3. o computador deve saber que:
-#     3.1 pedra > tesoura
-#     3.2 tesoura > pepel
-#     3.3 papel > pedra 
-#     3.4 itens iguais a jogada se repete
-# 4. o computador deve sortear um dos itens. 
-# 5. as jogadas devem ser batidas e devolver o resultado ao jogador. 
+        
