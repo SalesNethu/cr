@@ -1,25 +1,75 @@
-# def maior(n1, n2):
-#     if n1 > n2:
-#         return f"o maior numero é {n1}"
-#     elif n2 > n1:
-#         return f"o maior numero é {n2}"
-#     else:
-#         return "numeros iguais"
+
+alunos = []
+
+def adicionar_aluno():
     
-# numero1 = int(input("digite um numero: "))
-# numero2 = int(input("digite um numero: "))
+    matricula = int(input("digite a matricula do aluno:"))
+    nome = str(input("digite o nome do aluno: "))
+    aluno = {
+        "Nome": nome,
+        "Matrícula": matricula
+    }
 
-# print(maior(numero1, numero2))
+    for aluno in alunos:
+        if aluno["Matrícula"] == matricula:
+            return "Matricula já cadastrada"
+        
+    print(aluno)
+    alunos.append(aluno)
+    print("Aluno cadastrado")
+
+    
+def visualizar_alunos():
+    for aluno in alunos:
+        print(f"""
+    Nome do aluno: {aluno['Nome']}
+    Matrícula do aluno: {aluno['Matrícula']}
+""")   
+
+       
+
+def remover_aluno():
+    matricula = int(input("digite o numero da matricula do aluno a ser removido: "))
+
+    for aluno in alunos:
+        if aluno["Matrícula"] == matricula:
+            alunos.remove(aluno)
+            print("aluno removido com sucesso")
+
+
+    
+        
+
+      
+    
 
 
 
+          
 
-def cadastro(nome, valor: float):
-    return f"produto {nome} e {valor} cadastrado com sucesso "
+    
+    
 
+    
+
+        
+    
 while True:
-    produto = str(input("digite o nome do produto:"))
-    valor = float(input("digite o valor do produto:"))
-    if produto == "sair":
-        break
-    print(cadastro(nome, valor))
+    menu = int(input("""
+    1 - Cadastrar Aluno
+    2 - Visualizar Aluno
+    3 - Remover Aluno
+    4 - Sair
+"""))    
+    match menu:
+        case 1:
+           adicionar_aluno()
+        case 2:
+            visualizar_alunos()
+        case 3:
+            remover_aluno()    
+        case 4:
+            print("saindo do programa")
+            break
+        case _:
+            print("opção invalida, tente novamente")        
