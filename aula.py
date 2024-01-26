@@ -1,13 +1,22 @@
-#atividade1
-
-lista_numero = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-numeropar = []
-
-def contarpar (lista_numero):
-    for escolha_numero in lista_numero:
-        if escolha_numero % 2 == 0:
-            numeropar.append(escolha_numero)  
-    return f"{numeropar} estes números são pares"  
-print(contarpar(lista_numero))
+class Autor:
+    def __init__(self,nome = str, idade = int, nacionalidade = str):
+        self.nome = nome
+        self.idade = idade
+        self.nacionalidade = nacionalidade
 
 
+class Livro:
+    def __init__(self, titulo = str, autor = str, genero = str, qnt_paginas = int):
+        self.titulo = titulo
+        self.autor = autor
+        self.genero = genero
+        self.qnt_paginas = qnt_paginas
+
+
+
+autor1 = Autor(nome= "Jaspion", idade= 40, nacionalidade= "japonesa")
+livro1 = Livro(titulo= "As cronicas de Jaspion", autor= autor1, genero= "ação")
+
+print(livro1.titulo)
+       
+                
