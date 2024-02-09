@@ -1,0 +1,87 @@
+sql aula 15 
+
+
+CREATE DATABASE plano_saude;
+USE plano_saude;
+
+create table planos(
+	id_plano int primary key auto_increment,
+    nome varchar(255),
+    valor float
+
+
+);
+
+create table clientes(
+	id_cliente int primary key auto_increment,
+    nome varchar (255),
+    endereço varchar (255),
+    cpf varchar(14),
+    telefone varchar(13),
+    id_plano INT,
+    FOREIGN KEY (id_plano) REFERENCES planos(id_plano)
+);
+
+
+create table dependentes(
+	id_dependente int primary key auto_increment,
+    nome varchar (255),
+    id_cliente INT,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+
+***********************************************************************************************************************************************
+
+CREATE DATABASE locadora;
+USE locadora;
+
+CREATE TABLE filmes(
+	id_filme INT PRIMARY KEY AUTO_INCREMENT,
+    nome_filme VARCHAR(255),
+    genero_filme VARCHAR(255),
+    duracao_file FLOAT
+		
+
+
+
+);
+CREATE TABLE jogos(
+	id_jogo INT PRIMARY KEY AUTO_INCREMENT,
+    nome_jogo VARCHAR(255),
+    categoria_jogo VARCHAR(255),
+    num_jogadores INT
+);    
+CREATE TABLE series(
+	id_series INT PRIMARY KEY AUTO_INCREMENT,
+    nome_series VARCHAR(255),
+    genero_series VARCHAR(255),
+    num_temporadas INT
+
+
+
+);
+CREATE TABLE aluguel_filmes(
+	id_aluguel_filme INT PRIMARY KEY AUTO_INCREMENT,
+    id_filme INT,
+	horario DATETIME,
+    valor FLOAT,
+    FOREIGN KEY (id_filme) REFERENCES filmes(id_filme)
+
+);
+CREATE TABLE aluguel_jogos(
+	id_aluguel_jogo INT PRIMARY KEY AUTO_INCREMENT,
+    id_jogo INT,
+    horario DATETIME,
+    valor FLOAT,
+    FOREIGN KEY (id_jogo) REFERENCES jogos(id_jogo)
+
+
+
+);
+CREATE TABLE aluguel_series(
+	id_aluguel_seires INT PRIMARY KEY AUTO_INCREMENT,
+    id_series INT,
+    horario DATETIME,
+    valor FLOAT,
+    FOREIGN KEY (id_series) REFERENCES series(id_series)
+
