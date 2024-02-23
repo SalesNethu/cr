@@ -1,0 +1,146 @@
+sql 3
+
+CREATE DATABASE escola;
+USE escola;
+
+CREATE TABLE professor(
+id_professor INT auto_increment PRIMARY KEY,
+nome_professor varchar(255)not null,
+disciplina varchar(255)
+);
+
+CREATE TABLE turma(
+id_turma INT auto_increment primary KEY,
+horario time,
+id_professor_turma INT,
+foreign key (id_professor_turma) references professor (id_professor)
+
+
+);
+
+create table alunos(
+id_aluno INT auto_increment primary KEY,
+nome_aluno VARCHAR (255)not null,
+cpf varchar (255) unique,
+endereço varchar(255)not null,
+id_turma_do_aluno INT,
+foreign key (id_turma_do_aluno) references turma (id_turma)
+);
+
+INSERT INTO professor (nome_professor, disciplina) VALUES ("professor1", "portugues"), ("professor2", "matematica");
+
+INSERT INTO turma (horario, id_professor_turma) values ("15:30:00", 1), ("16:30:00", 2);
+
+INSERT INTO alunos (nome_aluno,cpf,endereço,id_turma_do_aluno)
+VALUES
+("aluno1","012345675","rua 1, 01", 1 ),
+("aluno2","012345679","rua 2, 02", 1 ),
+("aluno3","012345678","rua 3, 03", 1 ),
+("aluno4","012345677","rua 4, 04", 2),
+("aluno5","012345676","rua 5, 05", 2);
+
+
+
+update alunos set nome_aluno = "antonio" where id_aluno = 13;
+delete from alunos where id_aluno = 14;
+select*from alunos;
+
+
+
+inner join
+
+CREATE DATABASE cadastro;
+USE cadastro;
+
+CREATE TABLE usuario(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255),
+    cidade VARCHAR(255),
+    idade INT
+);
+
+
+INSERT INTO usuario (nome, cidade, idade) VALUES
+("João", "Fortaleza", 35),
+("Maria", "Recife", 21),
+("José", "São Paulo", 40),
+("Ana", "Fortaleza", 19),
+("Pedro", "Rio de Janeiro", 27),
+("Patricia", "Fortaleza", 35),
+("Carlos", "Pará", 14),
+("Rebeca", "Florianopolis", 54);
+
+
+CREATE TABLE dependente(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255),
+    cidade VARCHAR(255),
+    idade INT,
+    id_usuario INT,
+    FOREIGN KEY (id_usuario) REFERENCES usuario (id)
+);
+
+
+INSERT INTO dependente (nome, cidade, idade, id_usuario) VALUES
+("Romario", "Recife", 35, 1),
+("Jessica", "Recife", 21, 1),
+("Diego", "Rio de Janeiro", 40, 4),
+("Roberta", "Fortaleza", 19, 6),
+("William", "Rio de Janeiro", 27, 2),
+("Denise", "São Paulo", 35, 3),
+("Wagner", "São Paulo", 14, 3),
+("Aline", "São Paulo", 54, 1);
+
+
+SELECT nome as Nome_do_usuario, idade as Idade_do_usuario FROM usuario WHERE cidade = "Fortaleza";
+
+
+SELECT cidade, SUM(idade) as SOMA_DAS_IDADES from usuario GROUP BY cidade;
+
+
+SELECT nome, cidade, idade FROM usuario ORDER BY idade ASC;
+SELECT nome, cidade, idade FROM usuario ORDER BY idade DESC;
+
+
+SELECT * FROM usuario;
+SELECT * FROM dependente;
+
+
+SELECT
+usuario.nome AS Nome_usuario,
+usuario.cidade AS Cidade_usuario,
+dependente.nome AS Nome_dependente,
+dependente.cidade AS Cidade_dependente
+FROM usuario INNER JOIN dependente ON usuario.id = dependente.id_usuario
+ORDER BY usuario.nome DESC;
+
+
+LEFT JOin and right join
+
+create database venda;
+use venda;
+
+create table clientes(
+id_cliente int auto_increment primary key,
+nome_cliente varchar (255) not null);
+
+create table pedido(
+numero_pedido int auto_increment primary key,
+id_cliente int,
+foreign key (id_cliente) references clientes (id_cliente)
+);
+
+
+insert into clientes (nome_cliente) values 
+("fernando"),
+("paulo"),
+("osvaldo"),
+("cassiano");
+
+insert into pedido (id_cliente) values (4),(4),(2),(1);
+
+
+
+select clientes.nome_cliente, clientes.id_cliente, pedido.numero_pedido 
+from clientes left join pedido on clientes.id_cliente = pedido.id_cliente; 
+
