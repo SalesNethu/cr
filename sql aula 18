@@ -1,0 +1,35 @@
+CREATE DATABASE locadora;
+USE locadora;
+
+CREATE TABLE filmes(
+titulo nvarchar(255)not null,
+id_filme INT auto_increment PRIMARY KEY,
+genero NVARCHAR(255),
+ano_lancamento nvarchar(255)
+);
+
+
+INSERT INTO filmes (titulo, genero,ano_lancamento) 
+VALUES 
+("a mão que balança o berço", "terror", "1992"),
+("os garotos perdidos", "terror", "1987"),
+("a experiência", "terror", "1995"),
+("American Pie", "comédia", "1999"),
+("efeito borboleta", "ficção científica", "1999"),
+("interestelar", "ficção científica", "2014"),
+("vingadores", "ação/fantasia", "2012"),
+("a história sem fim", "infantil/fantasia", "1984"),
+("garota exemplar", "mistério", "2014"),
+("jhon whick", "ação", "2014");
+
+
+select*from filmes;
+update filmes set titulo = "Das Experiment" where id_filme = 3;
+update filmes set titulo = "The Butterfly Effect" where id_filme = 5;
+update filmes set titulo = "The Avengers" where id_filme = 7;
+update filmes set ano_lancamento = "2014" where id_filme = 9;
+
+delete from filmes where id_filme = 20;
+delete from filmes where id_filme = 4;
+
+select*from filmes where ano_lancamento > 2005;
